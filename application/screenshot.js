@@ -2,7 +2,7 @@ const puppeteer = require("puppeteer");
 
 class screenshot {
 
-    async buildPdf(url) {
+    async pdf(url) {
         this.browser = this.browser || await puppeteer.launch({headless: true});
         const page = await this.browser.newPage();
         await page.goto(url, {
@@ -15,7 +15,7 @@ class screenshot {
         return file
     }
 
-    async buildJpg(url) {
+    async jpg(url) {
         this.browser = this.browser || await puppeteer.launch({headless: true});
         const page = await this.browser.newPage();
         await page.goto(url, {waitUntil: 'networkidle2'});

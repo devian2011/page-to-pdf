@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const builder = require("../application/screenshot");
+const screenshot = require("../application/screenshot");
 
 /* GET home page. */
 router.get('/', async function (req, res, next) {
@@ -16,12 +16,12 @@ router.post("/", async function (req, res, next) {
         switch (type) {
             case "pdf":
                 res.contentType("application/pdf");
-                res.send(await builder.buildPdf(url));
+                res.send(await screenshot.pdf(url));
                 break;
             case "jpeg":
             case "jpg":
                 res.contentType("application/jpeg");
-                res.send(await builder.buildJpg(url));
+                res.send(await screenshot.jpg(url));
                 break;
             default:
                 res.json({error: true, code: 400, message: "Wrong type. Only pdf and jpg types are available"});
