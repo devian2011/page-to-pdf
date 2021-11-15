@@ -3,7 +3,7 @@ const puppeteer = require("puppeteer");
 class screenshot {
 
     async pdf(url) {
-        this.browser = this.browser || await puppeteer.launch({headless: true});
+        this.browser = this.browser || await puppeteer.launch({headless: false, devtools: false, args: ['--no-sandbox']});
         const page = await this.browser.newPage();
         await page.goto(url, {
             waitUntil: 'networkidle2',
@@ -16,7 +16,7 @@ class screenshot {
     }
 
     async jpg(url) {
-        this.browser = this.browser || await puppeteer.launch({headless: true});
+        this.browser = this.browser || await puppeteer.launch({headless: false, devtools: false, args: ['--no-sandbox']});
         const page = await this.browser.newPage();
         await page.goto(url, {waitUntil: 'networkidle2'});
         await page.emulateMediaType('screen');

@@ -27,6 +27,7 @@ router.post("/", async function (req, res, next) {
                 res.json({error: true, code: 400, message: "Wrong type. Only pdf and jpg types are available"});
         }
     } catch (e) {
+        console.log(e);
         res.json(
             {
                 error: true,
