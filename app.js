@@ -14,7 +14,7 @@ app.use(function (req, res, next) {
     if (process.env.DEBUG === true || process.env.ACCESS_KEY_VALUE === req.header(accessKeyName)) {
         next();
     } else {
-        res.render('access-denied');
+        res.json({error: true, message: 'Access Denied. No token was specified', code: 403});
     }
 });
 

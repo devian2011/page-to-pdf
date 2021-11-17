@@ -7,6 +7,7 @@ class screenshot {
             {
                 headless: true,
                 devtools: false,
+
                 args: [
                     '--no-sandbox'
                 ]
