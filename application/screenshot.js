@@ -18,7 +18,8 @@ class screenshot {
         await this.initBrowser();
         const page = await this.browser.newPage();
         await page.goto(url, {
-            waitUntil: 'networkidle2',
+            waitUntil: 'load',
+            timeout: 0
         });
         const file = await page.pdf(
             {
